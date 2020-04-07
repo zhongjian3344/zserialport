@@ -1,16 +1,25 @@
-apply plugin: 'com.android.application'
+def isLib = true
+if(isLib) {
+    apply plugin: 'com.android.library'
+}
+else {
+    apply plugin: 'com.android.application'
+}
 
-group='com.github.zhongjian3344'
+//apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "28.0.3"
     defaultConfig {
-        applicationId "com.lotsrc.zserialport"
+        if(!isLib) {
+            applicationId "com.lotsrc.zserialport"
+        }
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 101
-        versionName "1.0.1"
+        versionCode 102
+        versionName "1.0.2"
     }
     buildTypes {
         release {
